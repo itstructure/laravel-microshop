@@ -1,0 +1,15 @@
+.product-logo {
+  min-height: 200px;
+  object-fit: contain;
+  background: url("images/product1.jpg") no-repeat 50% 50%;
+
+  &.cat-id-1 {
+    background: url("images/product1.jpg") no-repeat 50% 50%;
+  }
+  &.cat-id-2 {
+    background: url("images/product2.jpg") no-repeat 50% 50%;
+  }
+  &.cat-id-3 {
+    background: url("images/product3.jpg") no-repeat 50% 50%;
+  }
+}

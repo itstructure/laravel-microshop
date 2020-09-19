@@ -76,7 +76,22 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-2 offset-md-1">
+                    <div class="card">
+                        <ul class="list-group list-group-flush">
+                            @foreach($categories as $category)
+                                <li class="list-group-item">
+                                    <a href="{{ route('category_products', ['alias' => $category->alias]) }}">{{ $category->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-8">
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
 </body>
