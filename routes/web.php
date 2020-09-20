@@ -13,15 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/react', function () {
-    return view('react');
-});
-
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/products/{alias}', 'HomeController@products')->name('category_products');
-
+Route::get('/card', 'CardController@index')->name('card');
 
 Auth::routes();
+
+/*
+|--------------------------------------------------------------------------
+| Order section.
+|--------------------------------------------------------------------------
+*/
+Route::group(['namespace' => 'Ajax', 'middleware' => ['auth']], function () {
+
+    Route::post('/put-to-card',       ['as' => 'put_to_card',       'uses' => 'OrderAjaxController@putToCard']);
+    Route::post('/set-count-in-card', ['as' => 'set_count_in_card', 'uses' => 'OrderAjaxController@setCountInCard']);
+    Route::post('/remove-from-card',  ['as' => 'remove_from_card',  'uses' => 'OrderAjaxController@removeFromCard']);
+    Route::post('/send-order',        ['as' => 'send_order',        'uses' => 'OrderAjaxController@sendOrder']);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -50,5 +59,10 @@ Route::group(['prefix'=>'admin', 'namespace' => 'Admin', 'middleware' => ['auth'
         Route::post('update/{id}', ['as' => 'admin_product_update', 'uses' => 'ProductController@update'])->where('id','\d+');
         Route::post('delete',      ['as' => 'admin_product_delete', 'uses' => 'ProductController@delete']);
         Route::get('view/{id}',    ['as' => 'admin_product_view',   'uses' => 'ProductController@view'])->where('id','\d+');
+    });
+
+    Route::group(['prefix'=>'order'], function () {
+        Route::get('/',            ['as' => 'admin_order_list',   'uses' => 'OrderController@index']);
+        Route::post('delete',      ['as' => 'admin_order_delete', 'uses' => 'OrderController@delete']);
     });
 });

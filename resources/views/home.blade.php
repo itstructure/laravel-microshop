@@ -15,7 +15,7 @@
                         <li class="list-group-item">Price ${{ $product->price }}</li>
                     </ul>
                     <div class="card-body">
-                        <a href="javascript:void(0)" class="btn btn-secondary">Put to basket</a>
+                        <a href="javascript:void(0)" class="btn btn-secondary" onclick="window.top_card_adapter.putToCard('{{ $product->id }}')">Put to basket</a>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use App\Http\View\Composers\ViewComposer;
+use App\Http\View\Composers\{CategoryViewComposer, TopCardViewComposer, OrderCardViewComposer};
 
 /**
  * Class AppServiceProvider
@@ -30,8 +30,18 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
+            ['home'],
+            TopCardViewComposer::class
+        );
+
+        View::composer(
+            ['card'],
+            OrderCardViewComposer::class
+        );
+
+        View::composer(
             ['home', 'card'],
-            ViewComposer::class
+            CategoryViewComposer::class
         );
     }
 }

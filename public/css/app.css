@@ -10906,6 +10906,12 @@ a.text-dark:focus {
   background: url(/images/product1.jpg?3f01457806519b1d4255201670a97e08) no-repeat 50% 50%;
 }
 
+.product-logo.mini {
+  width: 100px;
+  min-height: 100px;
+  max-height: 100px;
+}
+
 .product-logo.cat-id-1 {
   background: url(/images/product1.jpg?3f01457806519b1d4255201670a97e08) no-repeat 50% 50%;
 }
@@ -10916,5 +10922,38 @@ a.text-dark:focus {
 
 .product-logo.cat-id-3 {
   background: url(/images/product3.jpg?e9981f63a0396ca4cb8c695e1374a1ce) no-repeat 50% 50%;
+}
+
+.top-card-link {
+  text-decoration: none;
+}
+
+.top-card-link:hover {
+  text-decoration: none;
+}
+
+.top-card-link .top-card-block {
+  width: 150px;
+  height: 40px;
+  border: 1px solid #38c172;
+  border-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-card-link .top-card-block .top-card-icon {
+  width: 40px;
+  height: 40px;
+  background: url(/images/top-card.svg?497cba79a3ee361b715ac699de38c2b5) no-repeat 50% 50%;
+}
+
+.top-card-link .top-card-block .top-card-amount {
+  color: #4dc0b5;
+  font-weight: bold;
+  padding-right: 15px;
 }
 

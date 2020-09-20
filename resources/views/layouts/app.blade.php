@@ -9,6 +9,19 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script>
+        window.init_top_card_props = {
+            totalAmount: parseInt('{{ $totalAmount }}')
+        };
+        @if(isset($cardProducts) && isset($cardCounts))
+            window.init_order_card_props = {
+                cardProducts: {!! json_encode($cardProducts) !!},
+                cardCounts: {!! json_encode($cardCounts) !!},
+                totalAmount: parseInt('{{ $totalAmount }}')
+            };
+        @endif
+    </script>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -35,6 +48,8 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+
+                    <div id="id_top_card"></div>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

@@ -263,6 +263,11 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'orders',
+            'icon' => 'fas fa-fw fa-file',
+            'url'  => '/admin/order',
+        ],
     ],
 
     /*

@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('alias', 64);
             $table->text('description');
             $table->float('price');
-            $table->unsignedBigInteger('catId');
+            $table->unsignedBigInteger('catId')->index();
             $table->foreign('catId')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });

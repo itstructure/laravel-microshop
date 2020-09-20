@@ -3,6 +3,12 @@
   object-fit: contain;
   background: url("images/product1.jpg") no-repeat 50% 50%;
 
+  &.mini {
+    width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+  }
+
   &.cat-id-1 {
     background: url("images/product1.jpg") no-repeat 50% 50%;
   }

@@ -6,10 +6,10 @@ use Illuminate\View\View;
 use App\Category;
 
 /**
- * Class ViewComposer
+ * Class CategoryViewComposer
  * @package App\Http\View\Composers
  */
-class ViewComposer
+class CategoryViewComposer
 {
     /**
      * @param View $view

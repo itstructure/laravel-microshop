@@ -65785,16 +65785,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Card */ "./resources/js/components/Card.js");
+/* harmony import */ var _components_TopCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TopCard */ "./resources/js/components/TopCard.js");
+/* harmony import */ var _components_OrderCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/OrderCard */ "./resources/js/components/OrderCard.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./top_card_adapter */ "./resources/js/top_card_adapter.js");
 
 
 
 
-if (document.getElementById('root')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root'));
-}
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  var id_top_card = document.getElementById('id_top_card');
+
+  if (id_top_card) {
+    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TopCard__WEBPACK_IMPORTED_MODULE_2__["default"], window.init_top_card_props), id_top_card);
+  }
+
+  var id_order_card = document.getElementById('id_order_card');
+
+  if (id_order_card) {
+    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_OrderCard__WEBPACK_IMPORTED_MODULE_3__["default"], window.init_order_card_props), id_order_card);
+  }
+
+  window.top_card_adapter = new TopCardAdapter(window.top_card_component);
+});
 
 /***/ }),
 
@@ -65843,10 +65858,329 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Card.js":
-/*!*****************************************!*\
-  !*** ./resources/js/components/Card.js ***!
-  \*****************************************/
+/***/ "./resources/js/components/OrderCard.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/OrderCard.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var OrderCard = /*#__PURE__*/function (_Component) {
+  _inherits(OrderCard, _Component);
+
+  var _super = _createSuper(OrderCard);
+
+  function OrderCard(props, context) {
+    var _this;
+
+    _classCallCheck(this, OrderCard);
+
+    _this = _super.call(this, props, context);
+    _this.setCountInCard = _this.setCountInCard.bind(_assertThisInitialized(_this));
+    _this.removeFromCard = _this.removeFromCard.bind(_assertThisInitialized(_this));
+    _this.handleUserInput = _this.handleUserInput.bind(_assertThisInitialized(_this));
+    _this.sendOrder = _this.sendOrder.bind(_assertThisInitialized(_this));
+    _this.state = {
+      total_amount: _this.props.totalAmount !== undefined ? _this.props.totalAmount : 0,
+      card_products: _this.props.cardProducts !== undefined ? _this.props.cardProducts : {},
+      card_counts: _this.props.cardCounts !== undefined ? _this.props.cardCounts : {},
+      user_name: '',
+      user_email: '',
+      user_comment: ''
+    };
+    return _this;
+  }
+
+  _createClass(OrderCard, [{
+    key: "setCountInCard",
+    value: function setCountInCard(count, id) {
+      var t = this;
+      axios.post('/set-count-in-card', {
+        id: id,
+        count: count !== undefined ? count : 1
+      }).then(function (resp) {
+        try {
+          var data = resp.data;
+
+          if (data.success == 1) {
+            window.top_card_component.setTotalAmount(data.total_amount);
+            var card_counts = t.state.card_counts;
+            card_counts[id] = count;
+            var state = t.state;
+            state.total_amount = data.total_amount;
+            state.card_counts = card_counts;
+            state.card_products[id].price = data.item_price;
+            t.setState(state);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      })["catch"](function (e) {
+        console.error(e.response.data.message);
+      });
+    }
+  }, {
+    key: "removeFromCard",
+    value: function removeFromCard(id) {
+      var t = this;
+      axios.post('/remove-from-card', {
+        id: id
+      }).then(function (resp) {
+        try {
+          var data = resp.data;
+
+          if (data.success == 1) {
+            window.top_card_component.setTotalAmount(data.total_amount);
+            var card_counts = t.state.card_counts;
+            delete card_counts[id];
+            var state = t.state;
+            state.total_amount = data.total_amount;
+            state.card_counts = card_counts;
+            t.setState(state);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      })["catch"](function (e) {
+        console.error(e.response.data.message);
+      });
+    }
+  }, {
+    key: "handleUserInput",
+    value: function handleUserInput(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "sendOrder",
+    value: function sendOrder() {
+      var t = this;
+      axios.post('/send-order', {
+        card_counts: t.state.card_counts,
+        user_name: t.state.user_name,
+        user_email: t.state.user_email,
+        user_comment: t.state.user_comment
+      }).then(function (resp) {
+        try {
+          var data = resp.data;
+
+          if (data.success == 1) {
+            window.top_card_component.setTotalAmount(0);
+            t.setState({
+              total_amount: 0,
+              card_products: {},
+              card_counts: {},
+              user_name: '',
+              user_email: '',
+              user_comment: ''
+            });
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      })["catch"](function (e) {
+        console.error(e.response.data.message);
+
+        if (e.response.data.errors !== undefined && Object.keys(e.response.data.errors).length) {
+          var userInputs = $('#user_inputs');
+          userInputs.find('.form-group').each(function () {
+            var roleGroup = $(this).attr('role');
+            var inputField = $(this).find('[name="' + roleGroup + '"]');
+            var helpBlock = $(this).find('#help_block_' + roleGroup);
+
+            if (roleGroup in e.response.data.errors) {
+              if (!inputField.hasClass('is-invalid')) {
+                inputField.addClass('is-invalid');
+              }
+
+              if (helpBlock.hasClass('d-none')) {
+                helpBlock.removeClass('d-none');
+              }
+
+              helpBlock.text(e.response.data.errors[roleGroup][0]);
+            } else {
+              if (inputField.hasClass('is-invalid')) {
+                inputField.removeClass('is-invalid');
+              }
+
+              if (!helpBlock.hasClass('d-none')) {
+                helpBlock.addClass('d-none');
+              }
+
+              helpBlock.text('');
+            }
+          });
+        }
+      });
+    }
+  }, {
+    key: "getUserInputs",
+    value: function getUserInputs() {
+      var _this2 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "user_inputs",
+        className: "offset-2 col-8 text-center"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        role: "user_name",
+        className: "form-group mb-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "user_name",
+        className: "form-control",
+        placeholder: "Your name",
+        defaultValue: this.state.user_name,
+        onChange: function onChange(e) {
+          return _this2.handleUserInput(e);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "help_block_user_name",
+        className: "invalid-feedback d-none"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        role: "user_email",
+        className: "form-group mb-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "user_email",
+        className: "form-control",
+        placeholder: "Email address",
+        defaultValue: this.state.user_email,
+        onChange: function onChange(e) {
+          return _this2.handleUserInput(e);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "help_block_user_email",
+        className: "invalid-feedback d-none"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        role: "user_comment",
+        className: "form-group mb-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        name: "user_comment",
+        className: "form-control",
+        placeholder: "Comment",
+        defaultValue: this.state.user_comment,
+        onChange: function onChange(e) {
+          return _this2.handleUserInput(e);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "help_block_user_comment",
+        className: "invalid-feedback d-none"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this2.sendOrder();
+        }
+      }, "Submit")));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var rows = [];
+
+      var _loop = function _loop(id) {
+        rows.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+          key: id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          scope: "row"
+        }, id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "product-logo cat-id-" + _this3.state.card_products[id].catId + " mini"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, _this3.state.card_products[id].title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, _this3.state.card_products[id].price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "number",
+          value: _this3.state.card_counts[id],
+          min: "1",
+          onChange: function onChange(event) {
+            return _this3.setCountInCard(event.target.value, id);
+          }
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, parseFloat(_this3.state.card_products[id].price * _this3.state.card_counts[id])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this3.removeFromCard(id);
+          }
+        }, "X"))));
+      };
+
+      for (var id in this.state.card_counts) {
+        _loop(id);
+      }
+
+      return Object.keys(this.state.card_counts).length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", {
+        className: "thead-light"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "ID"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Picture"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Price, $"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Count"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Amount, $"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Delete"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, rows)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 text-right"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "TOTAL AMOUNT: $", this.state.total_amount)))), this.getUserInputs()) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-danger"
+      }, "Card is empty");
+    }
+  }]);
+
+  return OrderCard;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (OrderCard);
+
+/***/ }),
+
+/***/ "./resources/js/components/TopCard.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/TopCard.js ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -65878,55 +66212,89 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var Card = /*#__PURE__*/function (_Component) {
-  _inherits(Card, _Component);
+var TopCard = /*#__PURE__*/function (_Component) {
+  _inherits(TopCard, _Component);
 
-  var _super = _createSuper(Card);
+  var _super = _createSuper(TopCard);
 
-  function Card(props, context) {
+  function TopCard(props, context) {
     var _this;
 
-    _classCallCheck(this, Card);
+    _classCallCheck(this, TopCard);
 
     _this = _super.call(this, props, context);
-    _this.handleChangeOrder = _this.handleChangeOrder.bind(_assertThisInitialized(_this));
+    _this.setTotalAmount = _this.setTotalAmount.bind(_assertThisInitialized(_this));
     _this.state = {
-      order: 12
+      total_amount: _this.props.totalAmount !== undefined ? _this.props.totalAmount : 0
     };
-    window.card_component = _assertThisInitialized(_this);
+    window.top_card_component = _assertThisInitialized(_this);
     return _this;
   }
 
-  _createClass(Card, [{
-    key: "handleChangeOrder",
-    value: function handleChangeOrder(order) {
+  _createClass(TopCard, [{
+    key: "setTotalAmount",
+    value: function setTotalAmount(total_amount) {
       var state = this.state;
-      state.order = order;
+      state.total_amount = total_amount;
       this.setState(state);
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "/card",
+        className: "top-card-link"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row justify-content-center"
+        className: "top-card-block"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-8"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-header"
-      }, "Example Component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-body"
-      }, "Order: ", this.state.order)))));
+        className: "top-card-icon"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "top-card-amount"
+      }, "$ ", this.state.total_amount)));
     }
   }]);
 
-  return Card;
+  return TopCard;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Card);
+/* harmony default export */ __webpack_exports__["default"] = (TopCard);
+
+/***/ }),
+
+/***/ "./resources/js/top_card_adapter.js":
+/*!******************************************!*\
+  !*** ./resources/js/top_card_adapter.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+TopCardAdapter = function TopCardAdapter(top_card_component) {
+  var t = this;
+  t.top_card_component = top_card_component;
+
+  t.putToCard = function (id, count) {
+    axios.post('/put-to-card', {
+      id: id,
+      count: count !== undefined ? count : 1
+    }).then(function (resp) {
+      try {
+        var data = resp.data;
+
+        if (data.success == 1) {
+          t.setTotalAmount(data.total_amount);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    })["catch"](function (e) {
+      console.error(e.response.data.message);
+    });
+  };
+
+  t.setTotalAmount = function (total_amount) {
+    t.top_card_component.setTotalAmount(total_amount);
+  };
+};
 
 /***/ }),
 

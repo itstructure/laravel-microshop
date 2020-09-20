@@ -14117,7 +14117,137 @@
      
 }
 
-        namespace Facade\Ignition\Facades { 
+        namespace App\Facades { 
+            /**
+     * Class Card
+     *
+     * @package App\Facades
+     */ 
+        class Card {
+                    /**
+         * 
+         *
+         * @return mixed 
+         * @static 
+         */ 
+        public static function retrieveSessionData()
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->retrieveSessionData();
+        }
+                    /**
+         * 
+         *
+         * @param array|null $sessionData
+         * @static 
+         */ 
+        public static function fillSessionData($sessionData = null)
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->fillSessionData($sessionData);
+        }
+                    /**
+         * 
+         *
+         * @param int $modelId
+         * @param int $count
+         * @return bool 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function putToCard($modelId, $count = 1)
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->putToCard($modelId, $count);
+        }
+                    /**
+         * 
+         *
+         * @param int $modelId
+         * @param int $count
+         * @return bool 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function setCountInCard($modelId, $count)
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->setCountInCard($modelId, $count);
+        }
+                    /**
+         * 
+         *
+         * @param int $modelId
+         * @return bool 
+         * @throws \Exception
+         * @static 
+         */ 
+        public static function removeFromCard($modelId)
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->removeFromCard($modelId);
+        }
+                    /**
+         * Clear card.
+         *
+         * @static 
+         */ 
+        public static function clearCard()
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->clearCard();
+        }
+                    /**
+         * 
+         *
+         * @return int 
+         * @static 
+         */ 
+        public static function getTotalCount()
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->getTotalCount();
+        }
+                    /**
+         * 
+         *
+         * @return float 
+         * @static 
+         */ 
+        public static function getTotalAmount()
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->getTotalAmount();
+        }
+                    /**
+         * 
+         *
+         * @param array $modelItems
+         * @return float 
+         * @static 
+         */ 
+        public static function calculateTotalAmount($modelItems)
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->calculateTotalAmount($modelItems);
+        }
+                    /**
+         * 
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getModelItems()
+        {
+                        /** @var \App\Services\CardService $instance */
+                        return $instance->getModelItems();
+        }
+         
+    }
+     
+}
+
+    namespace Facade\Ignition\Facades { 
             /**
      * Class Flare.
      *
@@ -17425,6 +17555,7 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
+            class Card extends \App\Facades\Card {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
      
 }
