@@ -65798,7 +65798,7 @@ __webpack_require__(/*! ./top_card_adapter */ "./resources/js/top_card_adapter.j
 document.addEventListener('DOMContentLoaded', function (event) {
   var id_top_card = document.getElementById('id_top_card');
 
-  if (id_top_card) {
+  if (id_top_card && window.init_top_card_props) {
     react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_TopCard__WEBPACK_IMPORTED_MODULE_2__["default"], window.init_top_card_props), id_top_card);
   }
 

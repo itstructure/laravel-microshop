@@ -9,22 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <script>
-        window.init_top_card_props = {
-            totalAmount: parseInt('{{ $totalAmount }}')
-        };
-        @if(isset($cardProducts) && isset($cardCounts))
-            window.init_order_card_props = {
-                cardProducts: {!! json_encode($cardProducts) !!},
-                cardCounts: {!! json_encode($cardCounts) !!},
-                totalAmount: parseInt('{{ $totalAmount }}')
-            };
-        @endif
-    </script>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -91,23 +75,10 @@
         </nav>
 
         <main class="py-4">
-            <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-2 offset-md-1">
-                    <div class="card">
-                        <ul class="list-group list-group-flush">
-                            @foreach($categories as $category)
-                                <li class="list-group-item">
-                                    <a href="{{ route('category_products', ['alias' => $category->alias]) }}">{{ $category->title }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-9 col-md-8">
-                    @yield('content')
-                </div>
-            </div>
+            @yield('content')
         </main>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

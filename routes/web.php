@@ -24,7 +24,7 @@ Auth::routes();
 | Order section.
 |--------------------------------------------------------------------------
 */
-Route::group(['namespace' => 'Ajax', 'middleware' => ['auth']], function () {
+Route::group(['namespace' => 'Ajax'], function () {
 
     Route::post('/put-to-card',       ['as' => 'put_to_card',       'uses' => 'OrderAjaxController@putToCard']);
     Route::post('/set-count-in-card', ['as' => 'set_count_in_card', 'uses' => 'OrderAjaxController@setCountInCard']);

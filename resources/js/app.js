@@ -8,7 +8,7 @@ import OrderCard from './components/OrderCard';
 
 document.addEventListener('DOMContentLoaded', (event) => {
     var id_top_card = document.getElementById('id_top_card');
-    if (id_top_card) {
+    if (id_top_card && window.init_top_card_props) {
         ReactDOM.render(<TopCard  {...window.init_top_card_props} />, id_top_card);
     }
 

@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.shop')
 
-@section('content')
+@section('body')
 
     <div class="row">
         @foreach($products as $product)
