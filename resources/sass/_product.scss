@@ -1,21 +1,40 @@
 .product-logo {
-  min-height: 200px;
-  object-fit: contain;
-  background: url("images/product1.jpg") no-repeat 50% 50%;
+  position: relative;
+
+  & a {
+    position: relative;
+    display: block;
+
+    & img {
+      min-height: 200px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 0.25rem 0.25rem 0 0;
+    }
+  }
 
   &.mini {
-    width: 100px;
-    min-height: 100px;
-    max-height: 100px;
+    & a {
+      & img {
+        min-height: 100px;
+        max-height: 100px;
+        width: 100px;
+        height: 100px;
+      }
+    }
   }
+}
 
-  &.cat-id-1 {
-    background: url("images/product1.jpg") no-repeat 50% 50%;
-  }
-  &.cat-id-2 {
-    background: url("images/product2.jpg") no-repeat 50% 50%;
-  }
-  &.cat-id-3 {
-    background: url("images/product3.jpg") no-repeat 50% 50%;
+.card {
+  &.product {
+    & .btn {
+      &.card-link {
+        width: 100%;
+        &:hover {
+          background-color: $orange;
+          border-color: $orange;
+        }
+      }
+    }
   }
 }

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\Titleable;
+use App\Traits\{Titleable, Aliasable};
 
 /**
  * Class Product
@@ -33,7 +33,7 @@ use App\Traits\Titleable;
  */
 class Product extends Model
 {
-    use Titleable;
+    use Titleable, Aliasable;
 
     protected $table = 'products';
 

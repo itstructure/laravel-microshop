@@ -1,0 +1,20 @@
+.card {
+  &.menu {
+    & .list-group {
+      & .list-group-item {
+        & a {
+          text-transform: uppercase;
+          text-decoration: none;
+          color: $brown;
+        }
+        &:hover {
+          background-color: $orange;
+          & a {
+            color: white;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

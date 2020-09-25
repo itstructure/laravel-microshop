@@ -5,21 +5,34 @@
     <div class="row">
         @foreach($products as $product)
             <div class="col-12 col-sm-6 col-xl-3">
-                <div class="card my-2">
-                    <div class="product-logo cat-id-{{ $product->catId }}"></div>
+                <div class="card my-2 product">
+                    <div class="product-logo">
+                        <a href="{{ route('product', ['alias' => $product->alias]) }}" target="_self">
+                            <img src="/images/product{{ $product->catId }}.jpg">
+                        </a>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->title }}</h5>
                         <p class="card-text">{{ $product->description }}</p>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Price ${{ $product->price }}</li>
-                    </ul>
-                    <div class="card-body">
-                        <a href="javascript:void(0)" class="btn btn-secondary" onclick="window.top_card_adapter.putToCard('{{ $product->id }}')">Put to basket</a>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-xl-12 d-flex align-items-center justify-content-center">
+                                Price ${{ $product->price }}
+                            </div>
+                            <div class="col-12 col-sm-6 col-xl-12">
+                                <a href="javascript:void(0)" class="btn btn-secondary card-link" onclick="window.top_card_adapter.putToCard('{{ $product->id }}')">Put to card</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         @endforeach
+    </div>
+    <div class="row">
+        <div class="col-12">
+            {{ $products->links() }}
+        </div>
     </div>
 
 @endsection

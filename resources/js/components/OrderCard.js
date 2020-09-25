@@ -172,7 +172,11 @@ class OrderCard extends Component {
                         {id}
                     </th>
                     <td>
-                        <div className={"product-logo cat-id-"+(this.state.card_products[id].catId)+" mini"}></div>
+                        <div className="product-logo mini">
+                            <a href={"/product/"+(this.state.card_products[id].alias)}>
+                                <img src={"/images/product"+(this.state.card_products[id].catId)+".jpg"} />
+                            </a>
+                        </div>
                     </td>
                     <td>
                         {this.state.card_products[id].title}

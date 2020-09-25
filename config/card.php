@@ -5,6 +5,6 @@ use App\Product;
 return [
     'modelClassName' => Product::class,
     'modelAdditionKeys' => [
-        'title', 'catId'
+        'title', 'catId', 'alias'
     ],
 ];

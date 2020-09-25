@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         View::composer(
-            ['home'],
+            ['home', 'product'],
             TopCardViewComposer::class
         );
 
@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
         );
 
         View::composer(
-            ['home', 'card'],
+            ['home', 'card', 'product'],
             CategoryViewComposer::class
         );
     }

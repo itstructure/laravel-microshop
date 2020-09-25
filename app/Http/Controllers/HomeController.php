@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Product;
-use App\Category;
+use App\{Product, Category};
 
 /**
  * Class HomeController
@@ -13,11 +11,24 @@ use App\Category;
 class HomeController extends Controller
 {
     /**
+     * @var int
+     */
+    protected $rowsInPage;
+
+    /**
+     * HomeController constructor.
+     */
+    public function __construct()
+    {
+        $this->rowsInPage = config('app.rowsInPage');
+    }
+
+    /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate($this->rowsInPage);
 
         return view('home', compact('products'));
     }
@@ -28,13 +39,13 @@ class HomeController extends Controller
      */
     public function products(string $alias)
     {
-        $category = Category::where('alias', $alias)->first();
+        $category = Category::getByAlias($alias);
 
         if (empty($category)) {
             abort(404);
         }
 
-        $products = $category->products;
+        $products = $category->products()->paginate($this->rowsInPage);
 
         return view('home', compact('products'));
     }

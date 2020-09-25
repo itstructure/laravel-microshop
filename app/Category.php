@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\Titleable;
+use App\Traits\{Titleable, Aliasable};
 
 /**
  * Class Category
@@ -28,7 +28,7 @@ use App\Traits\Titleable;
  */
 class Category extends Model
 {
-    use Titleable;
+    use Titleable, Aliasable;
 
     protected $table = 'categories';
 

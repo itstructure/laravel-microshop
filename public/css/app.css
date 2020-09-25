@@ -10900,28 +10900,36 @@ a.text-dark:focus {
 }
 
 .product-logo {
-  min-height: 200px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  background: url(/images/product1.jpg?3f01457806519b1d4255201670a97e08) no-repeat 50% 50%;
+  position: relative;
 }
 
-.product-logo.mini {
-  width: 100px;
+.product-logo a {
+  position: relative;
+  display: block;
+}
+
+.product-logo a img {
+  min-height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.product-logo.mini a img {
   min-height: 100px;
   max-height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
-.product-logo.cat-id-1 {
-  background: url(/images/product1.jpg?3f01457806519b1d4255201670a97e08) no-repeat 50% 50%;
+.card.product .btn.card-link {
+  width: 100%;
 }
 
-.product-logo.cat-id-2 {
-  background: url(/images/product2.jpg?a2db4ff0b35c9fb5fed7a40834581523) no-repeat 50% 50%;
-}
-
-.product-logo.cat-id-3 {
-  background: url(/images/product3.jpg?e9981f63a0396ca4cb8c695e1374a1ce) no-repeat 50% 50%;
+.card.product .btn.card-link:hover {
+  background-color: #f6993f;
+  border-color: #f6993f;
 }
 
 .top-card-link {
@@ -10935,7 +10943,7 @@ a.text-dark:focus {
 .top-card-link .top-card-block {
   width: 150px;
   height: 40px;
-  border: 1px solid #38c172;
+  border: 1px solid #804536;
   border-radius: 5px;
   background-color: white;
   overflow: hidden;
@@ -10952,8 +10960,32 @@ a.text-dark:focus {
 }
 
 .top-card-link .top-card-block .top-card-amount {
-  color: #4dc0b5;
+  color: #e3342f;
   font-weight: bold;
   padding-right: 15px;
+}
+
+.pagination .page-item.active span {
+  background-color: #804536;
+  border-color: #804536;
+}
+
+.pagination .page-item a.page-link {
+  color: #804536;
+}
+
+.card.menu .list-group .list-group-item a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #804536;
+}
+
+.card.menu .list-group .list-group-item:hover {
+  background-color: #f6993f;
+}
+
+.card.menu .list-group .list-group-item:hover a {
+  color: white;
+  font-weight: bold;
 }
 
