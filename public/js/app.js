@@ -65916,7 +65916,8 @@ var OrderCard = /*#__PURE__*/function (_Component) {
       card_counts: _this.props.cardCounts !== undefined ? _this.props.cardCounts : {},
       user_name: '',
       user_email: '',
-      user_comment: ''
+      user_comment: '',
+      order_sent: false
     };
     return _this;
   }
@@ -66003,7 +66004,8 @@ var OrderCard = /*#__PURE__*/function (_Component) {
               card_counts: {},
               user_name: '',
               user_email: '',
-              user_comment: ''
+              user_comment: '',
+              order_sent: true
             });
           }
         } catch (e) {
@@ -66170,8 +66172,8 @@ var OrderCard = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-12 text-right"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "TOTAL AMOUNT: $", this.state.total_amount)))), this.getUserInputs()) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "alert alert-danger"
-      }, "Card is empty");
+        className: "alert " + (this.state.order_sent ? "alert-success" : "alert-danger")
+      }, this.state.order_sent ? "Your order has been sent" : "Card is empty");
     }
   }]);
 

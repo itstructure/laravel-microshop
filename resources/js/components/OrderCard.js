@@ -15,7 +15,8 @@ class OrderCard extends Component {
             card_counts: this.props.cardCounts !== undefined ? this.props.cardCounts : {},
             user_name: '',
             user_email: '',
-            user_comment: ''
+            user_comment: '',
+            order_sent: false
         };
     }
 
@@ -101,7 +102,8 @@ class OrderCard extends Component {
                         card_counts: {},
                         user_name: '',
                         user_email: '',
-                        user_comment: ''
+                        user_comment: '',
+                        order_sent: true
                     });
                 }
 
@@ -229,8 +231,8 @@ class OrderCard extends Component {
                 }
             </div>
         ) : (
-            <div className="alert alert-danger">
-                Card is empty
+            <div className={"alert " + (this.state.order_sent ? "alert-success" : "alert-danger")}>
+                {this.state.order_sent ? "Your order has been sent" : "Card is empty"}
             </div>
         );
     }
