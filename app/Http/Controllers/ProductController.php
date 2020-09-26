@@ -18,6 +18,8 @@ class ProductController extends Controller
     {
         $model = Product::getByAlias($alias);
 
-        return view('product', compact('model'));
+        $category = $model->category;
+
+        return view('product', compact('model', 'category'));
     }
 }

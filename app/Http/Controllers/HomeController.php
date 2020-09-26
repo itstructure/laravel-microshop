@@ -47,6 +47,6 @@ class HomeController extends Controller
 
         $products = $category->products()->paginate($this->rowsInPage);
 
-        return view('home', compact('products'));
+        return view('home', compact('products', 'category'));
     }
 }

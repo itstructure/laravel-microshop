@@ -10923,13 +10923,18 @@ a.text-dark:focus {
   height: 100px;
 }
 
-.card.product .btn.card-link {
+.product-block .btn.btn-secondary.card-link {
   width: 100%;
 }
 
-.card.product .btn.card-link:hover {
+.product-block .btn.btn-secondary:hover {
   background-color: #f6993f;
   border-color: #f6993f;
+}
+
+.card:hover {
+  border-color: gray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .top-card-link {
@@ -10980,12 +10985,33 @@ a.text-dark:focus {
   color: #804536;
 }
 
+.card.menu .list-group .list-group-item:hover a,
+.card.menu .list-group .list-group-item.selected a {
+  color: white;
+  font-weight: bold;
+}
+
 .card.menu .list-group .list-group-item:hover {
+  background-color: rgba(246, 153, 63, 0.58);
+}
+
+.card.menu .list-group .list-group-item.selected {
   background-color: #f6993f;
 }
 
-.card.menu .list-group .list-group-item:hover a {
-  color: white;
-  font-weight: bold;
+.order-table input.product-count {
+  width: 50px;
+}
+
+@media (max-width: 1199px) {
+  .order-table {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 575px) {
+  .order-table {
+    font-size: 10px;
+  }
 }
 

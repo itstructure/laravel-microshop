@@ -20,13 +20,13 @@
         @endif
     @endif
 
-    <div class="row">
+    <div class="row mx-0">
         <div class="col-xs-12 col-md-3 col-lg-3 col-xl-2 offset-lg-1">
             <div class="card menu">
                 <ul class="list-group list-group-flush">
-                    @foreach($categories as $category)
-                        <li class="list-group-item p-0">
-                            <a href="{{ route('category_products', ['alias' => $category->alias]) }}" class="d-block py-4 px-3">{{ $category->title }}</a>
+                    @foreach($categories as $cat)
+                        <li class="list-group-item p-0 @if(isset($category) && $category->id == $cat->id) selected @endif">
+                            <a href="{{ route('category_products', ['alias' => $cat->alias]) }}" class="d-block py-4 px-3">{{ $cat->title }}</a>
                         </li>
                     @endforeach
                 </ul>

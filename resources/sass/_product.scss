@@ -25,16 +25,19 @@
   }
 }
 
-.card {
-  &.product {
-    & .btn {
-      &.card-link {
-        width: 100%;
-        &:hover {
-          background-color: $orange;
-          border-color: $orange;
-        }
-      }
+.product-block {
+  & .btn.btn-secondary {
+    &.card-link {
+      width: 100%;
+    }
+    &:hover {
+      background-color: $orange;
+      border-color: $orange;
     }
   }
+}
+
+.card:hover {
+  border-color: $gray;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }

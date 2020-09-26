@@ -143,8 +143,8 @@ class OrderCard extends Component {
 
     getUserInputs() {
         return (
-            <div className="row">
-                <div id="user_inputs" className="offset-2 col-8 text-center">
+            <div className="row mt-3">
+                <div id="user_inputs" className="col-12 offset-lg-2 col-lg-8 text-center">
                     <div role="user_name" className="form-group mb-4">
                         <input type="text" name="user_name" className="form-control" placeholder="Your name" defaultValue={this.state.user_name} onChange={(e) => this.handleUserInput(e)} />
                         <div id="help_block_user_name" className="invalid-feedback d-none"></div>
@@ -185,7 +185,7 @@ class OrderCard extends Component {
                         {this.state.card_products[id].price}
                     </td>
                     <td>
-                        <input type="number" value={this.state.card_counts[id]} min="1" onChange={(event) => this.setCountInCard(event.target.value, id)} />
+                        <input className="product-count" type="number" value={this.state.card_counts[id]} min="1" onChange={(event) => this.setCountInCard(event.target.value, id)} />
                     </td>
                     <td>
                         {parseFloat(this.state.card_products[id].price * this.state.card_counts[id])}
@@ -199,9 +199,9 @@ class OrderCard extends Component {
 
         return Object.keys(this.state.card_counts).length ? (
             <div>
-                <div className="row">
-                    <div className="col-12">
-                        <table className="table">
+                <div className="row m-0">
+                    <div className="col-12 table-responsive">
+                        <table className="table order-table">
                             <thead className="thead-light">
                             <tr>
                                 <th scope="col">ID</th>

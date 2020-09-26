@@ -7,12 +7,17 @@
           text-decoration: none;
           color: $brown;
         }
-        &:hover {
-          background-color: $orange;
+        &:hover, &.selected {
           & a {
             color: white;
             font-weight: bold;
           }
+        }
+        &:hover {
+          background-color: $orange_light;
+        }
+        &.selected {
+          background-color: $orange;
         }
       }
     }
