@@ -232,8 +232,14 @@ return [
 
     'menu' => [
         [
+            'text' => 'Client side',
+            'icon' => 'fas fa-fw fa-home',
+            'url'  => '/',
+            'target' => '_blank'
+        ],
+        [
             'text' => 'categories',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fas fa-project-diagram',
             'submenu' => [
                 [
                     'text' => 'List',
@@ -265,7 +271,7 @@ return [
         ],
         [
             'text' => 'orders',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-user-plus',
             'url'  => '/admin/order',
         ],
     ],
