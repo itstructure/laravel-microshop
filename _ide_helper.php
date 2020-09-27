@@ -14244,6 +14244,64 @@
         }
          
     }
+            /**
+     * Class Order
+     *
+     * @package App\Facades
+     */ 
+        class Order {
+                    /**
+         * 
+         *
+         * @param int $modelId
+         * @return \App\Services\Result 
+         * @static 
+         */ 
+        public static function putToCard($modelId)
+        {
+                        /** @var \App\Services\OrderService $instance */
+                        return $instance->putToCard($modelId);
+        }
+                    /**
+         * 
+         *
+         * @param int $modelId
+         * @param int $count
+         * @return \App\Services\Result 
+         * @static 
+         */ 
+        public static function setCountInCard($modelId, $count)
+        {
+                        /** @var \App\Services\OrderService $instance */
+                        return $instance->setCountInCard($modelId, $count);
+        }
+                    /**
+         * 
+         *
+         * @param int $modelId
+         * @return \App\Services\Result 
+         * @static 
+         */ 
+        public static function removeFromCard($modelId)
+        {
+                        /** @var \App\Services\OrderService $instance */
+                        return $instance->removeFromCard($modelId);
+        }
+                    /**
+         * 
+         *
+         * @param array $orderData
+         * @param array $productCounts
+         * @return \App\Services\Result 
+         * @static 
+         */ 
+        public static function createOrder($orderData, $productCounts)
+        {
+                        /** @var \App\Services\OrderService $instance */
+                        return $instance->createOrder($orderData, $productCounts);
+        }
+         
+    }
      
 }
 
@@ -17556,6 +17614,7 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class Card extends \App\Facades\Card {}
+            class Order extends \App\Facades\Order {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
      
 }

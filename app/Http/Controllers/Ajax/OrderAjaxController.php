@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Ajax;
 
-use Card;
+use Order;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use App\Http\Requests\{CardSend, CardCount, SendOrder};
-use App\Order;
 
 /**
  * Class OrderAjaxController
@@ -20,17 +19,11 @@ class OrderAjaxController
     public function putToCard(CardSend $request)
     {
         try {
-            $id = $request->post('id');
-
-            if (Card::putToCard($id, 1)) {
-                return response()->json([
-                    'success' => 1,
-                    'total_amount' => Card::getTotalAmount()
-                ]);
-            }
+            $result = Order::putToCard($request->post('id'));
 
             return response()->json([
-                'success' => 0
+                'success' => $result->getSuccess(),
+                'total_amount' => $result->getTotalAmount()
             ]);
 
         } catch (\Exception $e) {
@@ -45,21 +38,12 @@ class OrderAjaxController
     public function setCountInCard(CardCount $request)
     {
         try {
-            $id = $request->post('id');
-            $count = $request->post('count');
-
-            if (Card::setCountInCard($id, $count)) {
-                $modelItems = Card::getModelItems();
-
-                return response()->json([
-                    'success' => 1,
-                    'total_amount' => Card::calculateTotalAmount($modelItems),
-                    'item_price' => $modelItems[$id]->price
-                ]);
-            }
+            $result = Order::setCountInCard($request->post('id'), $request->post('count'));
 
             return response()->json([
-                'success' => 0
+                'success' => $result->getSuccess(),
+                'total_amount' => $result->getTotalAmount(),
+                'item_price' => $result->getItemPrice()
             ]);
 
         } catch (\Exception $e) {
@@ -74,17 +58,11 @@ class OrderAjaxController
     public function removeFromCard(CardSend $request)
     {
         try {
-            $id = $request->post('id');
-
-            if (Card::removeFromCard($id)) {
-                return response()->json([
-                    'success' => 1,
-                    'total_amount' => Card::getTotalAmount()
-                ]);
-            }
+            $result = Order::removeFromCard($request->post('id'));
 
             return response()->json([
-                'success' => 0
+                'success' => $result->getSuccess(),
+                'total_amount' => $result->getTotalAmount()
             ]);
 
         } catch (\Exception $e) {
@@ -99,25 +77,11 @@ class OrderAjaxController
     public function sendOrder(SendOrder $request)
     {
         try {
-            $order = Order::create([
-                'user_name' => $request->post('user_name'),
-                'user_email' => $request->post('user_email'),
-                'user_comment' => $request->post('user_comment'),
-            ]);
-
-            $productCounts = array_map(function ($item) {
-                return [
-                    'count' => $item
-                ];
-            }, $request->post('card_counts'));
-
-            $order->products()->sync($productCounts);
-
-            Card::clearCard();
+            $result = Order::createOrder($request->all(), $request->post('card_counts'));
 
             return response()->json([
-                'success' => 1,
-                'total_amount' => 0
+                'success' => $result->getSuccess(),
+                'total_amount' => $result->getTotalAmount()
             ]);
 
         } catch (\Exception $e) {
