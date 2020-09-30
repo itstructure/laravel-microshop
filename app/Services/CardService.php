@@ -13,27 +13,27 @@ class CardService
     /**
      * @var string
      */
-    public $containerName = 'card';
+    private $containerName = 'card';
 
     /**
      * @var string
      */
-    public $modelClassName;
+    private $modelClassName;
 
     /**
      * @var string
      */
-    public $modelPrimaryKey = 'id';
+    private $modelPrimaryKey = 'id';
 
     /**
      * @var string
      */
-    public $modelAmountKey = 'price';
+    private $modelAmountKey = 'price';
 
     /**
      * @var array
      */
-    public $modelAdditionKeys = [];
+    private $modelAdditionKeys = [];
 
     /**
      * @var null|array
@@ -41,14 +41,59 @@ class CardService
     private $sessionData = null;
 
     /**
-     * CardService constructor.
-     * @param array $config
+     * @param $name
+     * @param $value
+     * @throws \Exception
      */
-    public function __construct(array $config = [])
+    public function __set($name, $value)
     {
-        foreach ($config as $name => $value) {
-            $this->{$name} = $value;
+        $setter = 'set' . $name;
+        if (method_exists($this, $setter)) {
+            $this->$setter($value);
+            return;
         }
+
+        throw new \Exception('Setting unknown property: ' . get_class($this) . '::' . $name);
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setContainerName(string $value)
+    {
+        $this->containerName = $value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setModelClassName(string $value)
+    {
+        $this->modelClassName = $value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setModelPrimaryKey(string $value)
+    {
+        $this->modelPrimaryKey = $value;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setModelAmountKey(string $value)
+    {
+        $this->modelAmountKey = $value;
+    }
+
+    /**
+     * @param array $value
+     */
+    public function setModelAdditionKeys(array $value)
+    {
+        $this->modelAdditionKeys = $value;
     }
 
     /**

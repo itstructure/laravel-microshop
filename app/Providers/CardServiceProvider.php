@@ -20,7 +20,13 @@ class CardServiceProvider extends ServiceProvider
     {
         $this->app->singleton('card', function($app)
         {
-            return new CardService($app['config']['card']);
+            $object = new CardService();
+
+            foreach ($app['config']['card'] as $key => $value) {
+                $object->{$key} = $value;
+            }
+
+            return $object;
         });
     }
 

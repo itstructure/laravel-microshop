@@ -11,17 +11,17 @@ class Result
     /**
      * @var int
      */
-    protected $success = 0;
+    private $success = 0;
 
     /**
      * @var float
      */
-    protected $total_amount = 0;
+    private $total_amount = 0;
 
     /**
      * @var float
      */
-    protected $item_price = 0;
+    private $item_price = 0;
 
     /**
      * @return static
