@@ -21,7 +21,7 @@
     @endif
 
     <div class="row mx-0">
-        <div class="col-xs-12 col-md-3 col-lg-3 col-xl-2 offset-lg-1">
+        <div class="col-xs-12 col-md-3 col-lg-3 col-xl-2 offset-lg-1 mb-3">
             <div class="card menu">
                 <ul class="list-group list-group-flush">
                     @foreach($categories as $cat)

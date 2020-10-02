@@ -23,9 +23,18 @@
     }
 
     & .top-card-amount {
-      color: $red;
+      color: $brown;
       font-weight: bold;
       padding-right: 15px;
+    }
+
+    &:hover {
+      background-color: $orange_light;
+      border-color: $orange_light;
+      box-shadow: 0 0 10px $orange_light;
+      & .top-card-amount {
+        color: white;
+      }
     }
   }
 }

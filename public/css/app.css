@@ -10937,6 +10937,16 @@ a.text-dark:focus {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 575px) {
+  .media.product-block {
+    flex-direction: column;
+  }
+
+  .media.product-block .media-body {
+    margin-top: 10px;
+  }
+}
+
 .top-card-link {
   text-decoration: none;
 }
@@ -10965,9 +10975,19 @@ a.text-dark:focus {
 }
 
 .top-card-link .top-card-block .top-card-amount {
-  color: #e3342f;
+  color: #804536;
   font-weight: bold;
   padding-right: 15px;
+}
+
+.top-card-link .top-card-block:hover {
+  background-color: rgba(246, 153, 63, 0.58);
+  border-color: rgba(246, 153, 63, 0.58);
+  box-shadow: 0 0 10px rgba(246, 153, 63, 0.58);
+}
+
+.top-card-link .top-card-block:hover .top-card-amount {
+  color: white;
 }
 
 .pagination .page-item.active span {
