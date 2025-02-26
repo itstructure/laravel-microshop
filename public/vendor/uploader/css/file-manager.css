@@ -1,0 +1,250 @@
+/* MAIN */
+html, body {
+  height: 100%;
+}
+#header {
+  position: relative;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 5px;
+  clear: both;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* LIST */
+.file-manager {
+  width: 100%;
+  height: calc(100% - 52px);
+}
+.file-manager .file-list {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.file-manager .file-list .card {
+  border: 0;
+  height: 100%;
+}
+.file-manager .file-list .card .card-header {
+  border: 0;
+  padding: 0;
+  background-color: #fff;
+  height: 24px;
+}
+.file-manager .file-list .card .card-body {
+  position: relative;
+  padding: 0;
+  height: calc(100% - 24px);
+}
+.file-manager .file-list .card .card-body table {
+  height: 100%;
+}
+.file-manager .file-list .card .card-body table thead {
+  height: 85px;
+  position: sticky;
+  top: 0;
+  background-color: rgb(188, 231, 249);
+  z-index: 1000;
+}
+.file-manager .file-list .card .card-body table tbody {
+  height: calc(100% - 140px);
+  overflow-y: scroll;
+}
+.file-manager .file-list .card .card-body table tfoot {
+  height: 55px;
+  position: sticky;
+  bottom: 0;
+  background-color: rgb(188, 231, 249);
+}
+.file-manager .file-list .card .card-body table tfoot ul.pagination,
+.file-manager .file-list .card .card-body table tfoot button {
+  margin: 3px;
+}
+.file-manager .file-list .card .card-body table thead,
+.file-manager .file-list .card .card-body table tbody tr {
+  width: 100%;
+}
+.file-manager .file-list .card .card-body table thead tr th:nth-child(1),
+.file-manager .file-list .card .card-body table tbody tr td:nth-child(1) {
+  width: 5%;
+}
+.file-manager .file-list .card .card-body table thead tr th:nth-child(2),
+.file-manager .file-list .card .card-body table tbody tr td:nth-child(2) {
+  width: 30%;
+}
+.file-manager .file-list .card .card-body table thead tr th:nth-child(3),
+.file-manager .file-list .card .card-body table tbody tr td:nth-child(3) {
+  width: 25%;
+}
+.file-manager .file-list .card .card-body table thead tr th:nth-child(4),
+.file-manager .file-list .card .card-body table tbody tr td:nth-child(4) {
+  width: 15%;
+}
+.file-manager .file-list .card .card-body table thead tr th:nth-child(5),
+.file-manager .file-list .card .card-body table tbody tr td:nth-child(5) {
+  width: 15%;
+}
+.file-manager .file-list .card .card-body table thead tr th:nth-child(6),
+.file-manager .file-list .card .card-body table tbody tr td:nth-child(6) {
+  width: 5%;
+}
+.file-manager .file-list .card .card-body table thead tr th:nth-child(7),
+.file-manager .file-list .card .card-body table tbody tr td:nth-child(7) {
+  width: 5%;
+}
+.file-manager .file-list .card .card-body table tbody tr td img.list-item {
+  object-fit: cover;
+}
+
+/* EDITION */
+.file-manager .file-edit {
+  position: relative;
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.file-manager .file-edit .preview-block {
+  position: relative;
+  width: 400px;
+}
+.file-manager .file-edit .preview-block .file-preview {
+  width: 100%;
+  min-height: 400px;
+  background-color: #ced4da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.file-manager .file-edit .preview-block .file-preview img,
+.file-manager .file-edit .preview-block .file-preview audio,
+.file-manager .file-edit .preview-block .file-preview video {
+  max-width: 400px;
+}
+.file-manager .file-edit .preview-block .file-preview img {
+  max-height: 400px;
+}
+.file-manager .file-edit .edit-form {
+  width: calc(100% - 400px);
+  padding-left: 5px;
+}
+.file-manager .file-edit .edit-form textarea {
+  height: 100px;
+}
+.file-manager .file-edit .edit-form .input-group.file-section .input-group-prepend,
+.file-manager .file-edit .edit-form .input-group.file-section input[type="file"] {
+  height: 44px;
+}
+.file-manager .file-edit .delete-feedback-text {
+  margin: auto;
+  font-size: 30px;
+}
+
+/* UPLOAD */
+.file-manager .file-upload {
+  position: relative;
+  clear: both;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+.file-manager .file-upload .upload-block {
+  position: relative;
+  clear: both;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-bottom: 1px solid grey;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.file-manager .file-upload .upload-block .preview-block {
+  position: relative;
+  width: 250px;
+}
+.file-manager .file-upload .upload-block .preview-block .file-preview {
+  width: 100%;
+  min-height: 250px;
+  background-color: #ced4da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 28px;
+  color: black;
+}
+.file-manager .file-upload .upload-block .preview-block .file-preview img,
+.file-manager .file-upload .upload-block .preview-block .file-preview audio,
+.file-manager .file-upload .upload-block .preview-block .file-preview video {
+  max-width: 250px;
+}
+.file-manager .file-upload .upload-block .preview-block .file-preview img {
+  max-height: 250px;
+}
+.file-manager .file-upload .upload-block .upload-form {
+  width: calc(100% - 250px);
+  padding-left: 5px;
+}
+.file-manager .file-upload .upload-block .upload-form textarea {
+  height: 100px;
+}
+.file-manager .file-upload .upload-block .upload-form .input-group.file-section .input-group-prepend,
+.file-manager .file-upload .upload-block .upload-form .input-group.file-section input[type="file"] {
+  height: 44px;
+}
+.file-manager .file-upload .upload-block .upload-form.completed .input-group-text {
+  user-select: none;
+  background-color: #bcffbf;
+  opacity: 0.65;
+}
+.file-manager .file-upload .upload-block .upload-form.completed input,
+.file-manager .file-upload .upload-block .upload-form.completed textarea {
+  pointer-events: none;
+  user-select: none;
+  background-color: #deffdd;
+  opacity: 0.65;
+}
+.file-manager .file-upload .upload-block .upload-form.completed .btn:not(.through) {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.65;
+}
+
+/* BUTTONS */
+.btn svg {
+  margin-top: -4px;
+}
+
+/* MEDIA SCREEN */
+@media (max-width: 800px) {
+  .file-manager .file-edit,
+  .file-manager .file-upload .upload-block {
+    flex-direction: column;
+    align-items: center;
+  }
+  .file-manager .file-edit .preview-block,
+  .file-manager .file-upload .upload-block .preview-block {
+    width: 100%;
+  }
+  .file-manager .file-edit .edit-form,
+  .file-manager .file-upload .upload-block .upload-form {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 0.8rem;
+  }
+  .btn span {
+    display: none;
+  }
+}
