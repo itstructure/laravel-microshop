@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use App\Services\CardService;
+use App\Facades\Card as CardFacade;
 
 /**
  * Class CardServiceProvider
@@ -28,6 +30,7 @@ class CardServiceProvider extends ServiceProvider
 
             return $object;
         });
+        AliasLoader::getInstance()->alias('Card', CardFacade::class);
     }
 
     /**

@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use App\Services\OrderService;
+use App\Facades\Order as OrderFacade;
 
 /**
  * Class OrderServiceProvider
@@ -22,6 +24,7 @@ class OrderServiceProvider extends ServiceProvider
         {
             return new OrderService();
         });
+        AliasLoader::getInstance()->alias('Order', OrderFacade::class);
     }
 
     /**

@@ -14,6 +14,7 @@
         "itstructure/laravel-media-file-uploader": "^1.0.4",
         "itstructure/laravel-rbac": "^3.0.16",
         "laravel/framework": "^12.0",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1"
     },
     "require-dev": {
