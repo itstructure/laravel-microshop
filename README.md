@@ -10,16 +10,16 @@ A simple internet shop.
 
 - php >= 8.2
 - MySQL >= 8.0.13 | MariaDB >= 10.2.1
-- composer
+- composer 2
 - NodeJs
 
 ## Installation
 
 1. Clone project.
 
-    `SSH SOURCE: git@github.com:itstructure/laravel-microshop-simple.git`
+    `SSH SOURCE: git@github.com:itstructure/laravel-microshop.git`
     
-    `HTTPS SOURCE: https://github.com/itstructure/laravel-12-microshop-simple.git`
+    `HTTPS SOURCE: https://github.com/itstructure/laravel-microshop.git`
     
 2. Install dependencies by running from the project root `composer install`
 
