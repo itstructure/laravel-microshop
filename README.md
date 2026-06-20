@@ -4,11 +4,11 @@
 
 A simple internet shop.
 
-**Based on Laravel 12**
+**Based on Laravel 13**
 
 ## Requirements
 
-- php >= 8.2
+- php >= 8.3
 - MySQL >= 8.0.13 | MariaDB >= 10.2.1
 - composer 2
 - NodeJs
